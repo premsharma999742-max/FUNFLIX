@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FUNFLIX - Movies & Drama</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b0f;
+      color: white;
+    }
+
+    header {
+      background: #111118;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #25252d;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff1744;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #ff1744;
+    }
+
+    .hero {
+      min-height: 430px;
+      padding: 80px 6%;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, #0b0b0f 10%, rgba(11,11,15,.75), rgba(11,11,15,.15)),
+        linear-gradient(135deg, #241018, #101015);
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #ff1744;
+    }
+
+    .hero p {
+      color: #ccc;
+      line-height: 1.7;
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      background: #ff1744;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #d90032;
+    }
+
+    .search-area {
+      padding: 30px 6% 10px;
+      text-align: center;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 650px;
+      padding: 15px 18px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background: #17171e;
+      color: white;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .categories {
+      padding: 25px 6%;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .category {
+      background: #191920;
+      color: #ddd;
+      border: 1px solid #30303a;
+      padding: 9px 17px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .category:hover {
+      background: #ff1744;
+      color: white;
+    }
+
+    section {
+      padding: 25px 6% 45px;
+    }
+
+    .section-title {
+      font-size: 25px;
+      margin-bottom: 22px;
+    }
+
+    .section-title span {
+      color: #ff1744;
+    }
+
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 20px;
+    }
+
+    .movie {
+      background: #15151c;
+      border-radius: 9px;
+      overflow: hidden;
+      border: 1px solid #25252e;
+      transition: .25s;
+    }
+
+    .movie:hover {
+      transform: translateY(-5px);
+      border-color: #ff1744;
+    }
+
+    .poster {
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #35121c, #17171e);
+      color: #777;
+      font-size: 15px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .movie-info {
+      padding: 14px;
+    }
+
+    .movie h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .movie p {
+      color: #999;
+      font-size: 13px;
+    }
+
+    footer {
+      background: #111118;
+      text-align: center;
+      padding: 30px 15px;
+      color: #888;
+      border-top: 1px solid #25252d;
+    }
+
+    footer strong {
+      color: #ff1744;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 15px 5%;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 390px;
+        padding: 60px 5%;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .poster {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">FUNFLIX</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#movies">Movies</a>
+      <a href="#drama">Drama</a>
+    </nav>
+  </header>
+
+  <main id="home">
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Welcome to <span>FUNFLIX</span></h1>
+
+        <p>
+          Movies & Drama Shows — Bollywood, Hollywood and more.
+          Discover your next favorite movie and enjoy entertainment in one place.
+        </p>
+
+        <a class="btn" href="#movies">Explore Movies</a>
+      </div>
+    </div>
+
+    <div class="search-area">
+      <input
+        type="text"
+        id="search"
+        class="search-box"
+        placeholder="Search movies or drama..."
+        onkeyup="searchMovies()"
+      >
+    </div>
+
+    <div class="categories">
+      <button class="category" onclick="filterMovies('all')">All</button>
+      <button class="category" onclick="filterMovies('bollywood')">Bollywood</button>
+      <button class="category" onclick="filterMovies('hollywood')">Hollywood</button>
+      <button class="category" onclick="filterMovies('drama')">Drama</button>
+      <button class="category" onclick="filterMovies('action')">Action</button>
+      <button class="category" onclick="filterMovies('romance')">Romance</button>
+    </div>
+
+    <section id="movies">
+      <h2 class="section-title">Latest <span>Movies</span></h2>
+
+      <div class="movies" id="movieList">
+
+        <div class="movie" data-category="bollywood action" data-name="Pathaan">
+          <div class="poster">PATHAAN<br>Movie Poster</div>
+          <div class="movie-info">
+            <h3>Pathaan</h3>
+            <p>Bollywood • Action</p>
+          </div>
+        </div>
+
+        <div class="movie" data-category="bollywood romance" data-name="Jawan">
+          <div class="poster">JAWAN<br>Movie Poster</div>
+          <div class="movie-info">
+            <h3>Jawan</h3>
+            <p>Bollywood • Action</p>
+          </div>
+        </div>
+
+        <div class="movie" data-category="bollywood romance" data-name="Dilwale">
+          <div class="poster">DILWALE<br>Movie Poster</div>
+          <div class="movie-info">
+            <h3>Dilwale</h3>
+            <p>Bollywood • Romance</p>
+          </div>
+        </div>
+
+        <div class="movie" data-category="bollywood romance" data-name="Chennai Express">
+          <div class="poster">CHENNAI<br>EXPRESS</div>
+          <div class="movie-info">
+            <h3>Chennai Express</h3>
+            <p>Bollywood • Romance</p>
+          </div>
+        </div>
+
+        <div class="movie" data-category="hollywood action" data-name="Avengers">
+          <div class="poster">AVENGERS<br>Movie Poster</div>
+          <div class="movie-info">
+            <h3>Avengers</h3>
+            <p>Hollywood • Action</p>
+          </div>
+        </div>
+
+        <div class="movie" data-category="hollywood action" data-name="Spider Man">
+          <div class="poster">SPIDER-MAN<br>Movie Poster</div>
+          <div class="movie-info">
+            <h3>Spider-Man</h3>
+            <p>Hollywood • Action</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="drama">
+      <h2 class="section-title">Popular <span>Drama</span></h2>
+
+      <div class="movies">
+
+        <div class="movie">
+          <div class="poster">DRAMA<br>SHOW</div>
+          <div class="movie-info">
+            <h3>Popular Drama</h3>
+            <p>Drama • Series</p>
+          </div>
+        </div>
+
+        <div class="movie">
+          <div class="poster">NEW<br>SHOW</div>
+          <div class="movie-info">
+            <h3>New Drama</h3>
+            <p>Drama • Series</p>
+          </div>
+        </div>
+
+        <div class="movie">
+          <div class="poster">TOP<br>SHOW</div>
+          <div class="movie-info">
+            <h3>Top Drama</h3>
+            <p>Drama • Series</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 <strong>FUNFLIX</strong> — Movies & Drama</p>
+  </footer>
+
+  <script>
+    function searchMovies() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const movies = document.querySelectorAll("#movieList .movie");
+
+      movies.forEach(movie => {
+        const name = movie.dataset.name.toLowerCase();
+
+        if (name.includes(input)) {
+          movie.style.display = "block";
+        } else {
+          movie.style.display = "none";
+        }
+      });
+    }
+
+    function filterMovies(category) {
+      const movies = document.querySelectorAll("#movieList .movie");
+
+      movies.forEach(movie => {
+        if (
+          category === "all" ||
+          movie.dataset.category.includes(category)
+        ) {
+          movie.style.display = "block";
+        } else {
+          movie.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
